@@ -1,3 +1,5 @@
+import React from 'react';
+
 class TodoApp extends React.Component {
   constructor(props) {
     super(props);
@@ -49,15 +51,17 @@ class TodoApp extends React.Component {
 }
 
 class TodoList extends React.Component {
-  render() {
-    return (
-      <ul>
-        {this.props.items.map(item => (
-          <li key={item.id}>{item.text}</li>
-        ))}
-      </ul>
-    );
-  }
-}
+   render() {
+     return (
+       <ul>
+         {this.props.items.map(item => (
+           <li key={item.id}>{item.text}</li>
+         ))}
+       </ul>
+     );
+   }
+ }
 
-ReactDOM.render(<TodoApp />, mountNode);
+//ReactDOM.render(<TodoApp />, mountNode);
+
+export default TodoApp
