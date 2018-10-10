@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { Component,Fragment } from 'react';
+import TodoList from './todolist'
+import Botao from './botao'
+import TodoList_input from './todolist_input'
 
 class TodoApp extends React.Component {
   constructor(props) {
@@ -10,23 +13,18 @@ class TodoApp extends React.Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <h3>TODO</h3>
         <TodoList items={this.state.items} />
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="new-todo">
             What needs to be done?
           </label>
-          <input
-            id="new-todo"
-            onChange={this.handleChange}
-            value={this.state.text}
-          />
-          <button>
-            Add #{this.state.items.length + 1}
-          </button>
+          {/*<input id="new-todo" onChange={this.handleChange} value={this.state.text}/>*/}
+          <TodoList_input id="new-todo" onChange={this.handleChange}/>
+          <Botao items={this.state.items}/>
         </form>
-      </div>
+      </Fragment>
     );
   }
 
@@ -49,18 +47,6 @@ class TodoApp extends React.Component {
     }));
   }
 }
-
-class TodoList extends React.Component {
-   render() {
-     return (
-       <ul>
-         {this.props.items.map(item => (
-           <li key={item.id}>{item.text}</li>
-         ))}
-       </ul>
-     );
-   }
- }
 
 //ReactDOM.render(<TodoApp />, mountNode);
 
