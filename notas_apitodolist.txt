@@ -1,0 +1,3 @@
+-> Notas para inicializar o ApiTodoList <- 
+ -> instalar com composer install
+ -> criar o db ajax
